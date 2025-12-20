@@ -1,20 +1,14 @@
 <?php
+// 1. On affiche les erreurs pour voir le coupable
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-use Illuminate\Foundation\Application;
-use Illuminate\Http\Request;
+// 2. Chemin vers Laravel
+$laravel = __DIR__ . '/../public/index.php';
 
-define('LARAVEL_START', microtime(true));
-
-// Determine if the application is in maintenance mode...
-if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
-    require $maintenance;
+if (!file_exists($laravel)) {
+    die("Erreur : Le dossier 'public' ou le fichier 'index.php' est introuvable sur le serveur.");
 }
 
-// Register the Composer autoloader...
-require __DIR__.'/../vendor/autoload.php';
-
-// Bootstrap Laravel and handle the request...
-/** @var Application $app */
-$app = require_once __DIR__.'/../bootstrap/app.php';
-
-$app->handleRequest(Request::capture());
+// 3. On lance Laravel
+require $laravel;
