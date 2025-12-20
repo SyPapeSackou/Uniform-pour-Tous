@@ -3,9 +3,10 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
+        "build": "composer install --no-dev --prefer-dist && vite build",
         "dev": "vite",
         "install": "composer install --no-dev --prefer-dist"
+
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
