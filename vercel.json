@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "framework": "laravel",
   "builds": [
     {
       "src": "api/index.php",
@@ -20,9 +19,5 @@
       "src": "/(.*)",
       "dest": "/api/index.php"
     }
-  ],
-  "env": {
-    "APP_ENV": "production",
-    "APP_DEBUG": "false"
-  }
+  ]
 }
